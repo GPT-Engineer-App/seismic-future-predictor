@@ -27,6 +27,7 @@ const Index = () => {
         { id: 8, date: "2024-03-15", magnitude: 1.8, location: "Naha" },
         { id: 9, date: "2024-05-22", magnitude: 2.5, location: "Sendai" },
         { id: 10, date: "2024-12-09", magnitude: 4.7, location: "Kobe" },
+        { id: 11, date: "2024-10-05", magnitude: 0.9, location: "Nagano" }, // Added an earthquake with a low magnitude as an example
         // ... more predicted data
       ];
       setEarthquakes(futureEarthquakes);
