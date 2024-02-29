@@ -17,19 +17,16 @@ const Index = () => {
     // ... more data
   ];
 
-  const predictEarthquakes = () => {
+  const predictEarthquakesBasedOnRealData = () => {
     setIsLoading(true);
-    // Simulate an API call to predict future earthquakes
+    // Simulate predictions based on actual past earthquakes
     setTimeout(() => {
-      const futureEarthquakes = [
-        { id: 3, date: "2024-07-21", magnitude: 6.0, location: "Kyoto" },
-        { id: 4, date: "2025-09-30", magnitude: 7.1, location: "Hokkaido" },
-        { id: 8, date: "2024-03-15", magnitude: 1.8, location: "Naha" },
-        { id: 9, date: "2024-05-22", magnitude: 2.5, location: "Sendai" },
-        { id: 10, date: "2024-12-09", magnitude: 4.7, location: "Kobe" },
-        { id: 11, date: "2024-10-05", magnitude: 0.9, location: "Nagano" }, // Added an earthquake with a low magnitude as an example
-        // ... more predicted data
-      ];
+      const futureEarthquakes = pastEarthquakes.map((quake) => ({
+        id: quake.id + pastEarthquakes.length, // Generate a new id
+        date: new Date(new Date(quake.date).setFullYear(new Date(quake.date).getFullYear() + 1)).toISOString().split("T")[0], // Increment the year for prediction
+        magnitude: (quake.magnitude + Math.random() * 0.5).toFixed(1), // Slightly alter the magnitude
+        location: quake.location,
+      }));
       setEarthquakes(futureEarthquakes);
       setIsLoading(false);
       toast({
@@ -49,7 +46,7 @@ const Index = () => {
           Earthquake Prediction Map
         </Heading>
         <Text>Analyze past earthquake data to predict future seismic events and visualize them on a map.</Text>
-        <Button leftIcon={<FaSearchLocation />} colorScheme="teal" onClick={predictEarthquakes} isLoading={isLoading}>
+        <Button leftIcon={<FaSearchLocation />} colorScheme="teal" onClick={predictEarthquakesBasedOnRealData} isLoading={isLoading}>
           Predict Earthquakes
         </Button>
         <SimpleGrid columns={2} spacing={10}>
