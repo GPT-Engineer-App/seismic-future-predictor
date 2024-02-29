@@ -11,6 +11,9 @@ const Index = () => {
   const pastEarthquakes = [
     { id: 1, date: "2021-01-01", magnitude: 5.2, location: "Tokyo" },
     { id: 2, date: "2022-05-11", magnitude: 6.4, location: "Osaka" },
+    { id: 5, date: "2023-02-18", magnitude: 4.3, location: "Nagoya" },
+    { id: 6, date: "2023-06-07", magnitude: 1.2, location: "Sapporo" },
+    { id: 7, date: "2023-11-30", magnitude: 3.5, location: "Fukuoka" },
     // ... more data
   ];
 
@@ -21,6 +24,9 @@ const Index = () => {
       const futureEarthquakes = [
         { id: 3, date: "2024-07-21", magnitude: 6.0, location: "Kyoto" },
         { id: 4, date: "2025-09-30", magnitude: 7.1, location: "Hokkaido" },
+        { id: 8, date: "2024-03-15", magnitude: 1.8, location: "Naha" },
+        { id: 9, date: "2024-05-22", magnitude: 2.5, location: "Sendai" },
+        { id: 10, date: "2024-12-09", magnitude: 4.7, location: "Kobe" },
         // ... more predicted data
       ];
       setEarthquakes(futureEarthquakes);
